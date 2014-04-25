@@ -11,12 +11,13 @@
 @implementation UILabel (Additions)
 
 - (void)requiredLabel {
-    
+    if (self.text != nil && [self.text length] != 0) {
     NSString *labelText = [NSString stringWithFormat:@"%@ *",self.text];
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:labelText];
     NSLog(@"length:%d",[text length]);
     [text addAttribute: NSForegroundColorAttributeName value: [UIColor redColor] range: NSMakeRange([text length]-1, 1)];
     [self setAttributedText: text];
+    }
 }
 
 @end
