@@ -20,11 +20,11 @@
 	}
 }
 
-- (void)enableCell:(BOOL)enabled withText:(BOOL)text {
+- (void)enableCell:(BOOL)enabled withText:(BOOL)dimText {
 	if (enabled) {
 		self.userInteractionEnabled = YES;
 
-		if (text) {
+		if (dimText) {
 			self.textLabel.alpha = 1.0f;
 			self.alpha = 1.0f;
 			self.detailTextLabel.hidden = NO;
@@ -33,7 +33,7 @@
 	else {
 		self.userInteractionEnabled = NO;
 
-		if (text) {
+		if (dimText) {
 			self.textLabel.alpha = 0.5f;
 			self.alpha = 0.5f;
 			self.detailTextLabel.hidden = YES;
@@ -41,14 +41,23 @@
 	}
 }
 
-- (void)enableCell:(BOOL)enabled withText:(BOOL)text withDisclosureIndicator:(BOOL)disclosureIndicator {
+- (void)enableCell:(BOOL)enabled withText:(BOOL)dimText withDisclosureIndicator:(BOOL)disclosureIndicator {
+	[self enableCell:enabled withText:dimText withDetailText:dimText withDisclosureIndicator:disclosureIndicator];
+}
+
+- (void)enableCell:(BOOL)enabled withText:(BOOL)dimText withDetailText:(BOOL)dimDetailText withDisclosureIndicator:(BOOL)disclosureIndicator {
 	if (enabled) {
 		self.userInteractionEnabled = YES;
 
-		if (text) {
+		if (dimText) {
 			self.textLabel.alpha = 1.0f;
 			self.alpha = 1.0f;
-			self.detailTextLabel.hidden = NO;
+			if (dimDetailText) {
+				self.detailTextLabel.alpha = 1.0f;
+			}
+			else {
+				self.detailTextLabel.hidden = NO;
+			}
 		}
 
 		self.accessoryType = disclosureIndicator ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
@@ -56,10 +65,15 @@
 	else {
 		self.userInteractionEnabled = NO;
 
-		if (text) {
+		if (dimText) {
 			self.textLabel.alpha = 0.5f;
 			self.alpha = 0.5f;
-			self.detailTextLabel.hidden = YES;
+			if (dimDetailText) {
+				self.detailTextLabel.alpha = 0.5f;
+			}
+			else {
+				self.detailTextLabel.hidden = YES;
+			}
 		}
 
 		self.accessoryType = UITableViewCellAccessoryNone;
