@@ -10,8 +10,6 @@
 
 @implementation UIViewController (Ext)
 
-// isVisible
-
 - (BOOL)isVisible {
 	return [self isViewLoaded] && self.view.window;
 }
