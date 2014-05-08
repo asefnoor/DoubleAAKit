@@ -9,7 +9,7 @@
 #import "UILabel+Additions.h"
 
 @implementation UILabel (Additions)
-//required label
+
 - (void)requiredLabel {
 	if (self.text != nil && [self.text length] != 0) {
 		NSString *labelText = [NSString stringWithFormat:@"%@ *", self.text];
