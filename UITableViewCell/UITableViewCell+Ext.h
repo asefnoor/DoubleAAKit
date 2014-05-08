@@ -11,8 +11,9 @@
 @interface UITableViewCell (Ext)
 
 - (UITableView *)uiTableView;
-- (void)enableCell:(BOOL)enabled withText:(BOOL)text;
-- (void)enableCell:(BOOL)enabled withText:(BOOL)text withDisclosureIndicator:(BOOL)disclosureIndicator;
+- (void)enableCell:(BOOL)enabled withText:(BOOL)dimText;
+- (void)enableCell:(BOOL)enabled withText:(BOOL)dimText withDisclosureIndicator:(BOOL)disclosureIndicator;
+- (void)enableCell:(BOOL)enabled withText:(BOOL)dimText withDetailText:(BOOL)dimDetailText withDisclosureIndicator:(BOOL)disclosureIndicator;
 - (void)disclosureIndicator:(BOOL)disclosureIndicator;
 
 @end
