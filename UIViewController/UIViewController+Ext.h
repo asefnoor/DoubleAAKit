@@ -11,5 +11,6 @@
 @interface UIViewController (Ext)
 
 - (BOOL)isVisible;
+- (BOOL)isPresented;
 
 @end
