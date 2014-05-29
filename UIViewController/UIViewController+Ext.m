@@ -14,4 +14,8 @@
 	return [self isViewLoaded] && self.view.window;
 }
 
+- (BOOL)isPresented {
+	return self.presentingViewController != nil;
+}
+
 @end
